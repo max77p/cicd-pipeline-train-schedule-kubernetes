@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'printenv'
+                echo 'Pulling...' + env.BRANCH_NAME
                 echo 'Running build automation'
                 sh './gradlew build --no-daemon'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
