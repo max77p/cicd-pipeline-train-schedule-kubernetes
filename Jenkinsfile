@@ -14,13 +14,9 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
-            steps {
-                script {
-                    app = docker.build(DOCKER_IMAGE_NAME)
-                    app.inside {
-                        sh 'echo Hello, World!'
-                    }
-                }
+            agent { dockerfile true }
+                steps {
+                sh 'node --version'
             }
         }
     }
