@@ -5,6 +5,12 @@ pipeline {
         //be sure to replace "willbla" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "shancode1103/train-schedule"
     }
+          parameters {
+          booleanParam (name: 'BUILD_UI_APP', defaultValue: false, description: 'Build UI?')
+          //booleanParam (name: 'BUILD_UI_MOCK_APP', defaultValue: false, description: 'Build UI Mock?')
+          booleanParam (name: 'BUILD_BACKEND_APP', defaultValue: false, description: 'Build Backend?')
+          booleanParam (name: 'BUILD_BACKEND_MOCK_APP', defaultValue: false, description: 'Build Backend Mock?')
+      }
     stages {
         stage('Build') {
             steps {
